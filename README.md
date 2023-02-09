@@ -1,4 +1,4 @@
-![Docker Image CI](https://github.com/bateau84/openttd/workflows/Docker%20Image%20CI/badge.svg?branch=master)  
+![Docker Image CI](https://github.com/russellwilson01/openttd/workflows/Docker%20Image%20CI/badge.svg?branch=master)  
 [![dockeri.co](https://dockeri.co/image/bateau/openttd)](https://hub.docker.com/r/bateau/openttd)
 ## Usage ##
 
