@@ -1,5 +1,5 @@
 ![Docker Image CI](https://github.com/russellwilson01/openttd/workflows/Docker%20Image%20CI/badge.svg?branch=master)  
-[![dockeri.co](https://dockeri.co/image/bateau/openttd)](https://hub.docker.com/r/bateau/openttd)
+[![dockeri.co](https://dockeri.co/image/hoggaming/openttd)](https://hub.docker.com/r/hoggaming/openttd)
 ## Usage ##
 
 ### File locations ###
@@ -31,38 +31,29 @@ If your openttd config is set up to listen on port 3979 you need to map the cont
 
 Run Openttd and expose the default ports.  
 
-    docker run -d -p 3979:3979/tcp -p 3979:3979/udp bateau/openttd:latest
+    docker run -d -p 3979:3979/tcp -p 3979:3979/udp hoggaming/openttd:latest
 
 Run Openttd with random port assignment.  
 
-    docker run -d -P bateau/openttd:latest
+    docker run -d -P hoggaming/openttd:latest
 
 Its set up to not load any games by default (new game) and it can be run without mounting a .openttd folder.  
 However, if you want to save/load your games, mounting a .openttd folder is required.
 
-    docker run -v /path/to/your/.openttd:/home/openttd/.openttd -p 3979:3979/tcp -p 3979:3979/udp bateau/openttd:latest
+    docker run -v /path/to/your/.openttd:/home/openttd/.openttd -p 3979:3979/tcp -p 3979:3979/udp hoggaming/openttd:latest
 
 Set UID and GID of user in container to be the same as your user outside with seting env PUID and PGID.
 For example
 
-    docker run -e PUID=1000 -e PGID=1000 -v /path/to/your/.openttd:/home/openttd/.openttd -p 3979:3979/tcp -p 3979:3979/udp bateau/openttd:latest
+    docker run -e PUID=1000 -e PGID=1000 -v /path/to/your/.openttd:/home/openttd/.openttd -p 3979:3979/tcp -p 3979:3979/udp hoggaming/openttd:latest
 
 For other save games use (/home/openttd/.openttd/save/ is appended to savename when passed to openttd command)
 
-    docker run -e "loadgame=true" -e "savename=game.sav" -v /path/to/your/.openttd:/home/openttd/.openttd -p 3979:3979/tcp -p 3979:3979/udp bateau/openttd:latest
+    docker run -e "loadgame=true" -e "savename=game.sav" -v /path/to/your/.openttd:/home/openttd/.openttd -p 3979:3979/tcp -p 3979:3979/udp hoggaming/openttd:latest
 
 For example to run server and load my savename game.sav:
 
-    docker run -d -p 3979:3979/tcp -p 3979:3979/udp -v /home/<your_username>/.openttd:/home/openttd/.openttd -e PUID=<your_userid> -e PGID=<your_groupid> -e "loadgame=true" -e "savename=game.sav" bateau/openttd:latest
-
-## Kubernetes ##
-
-Supplied some example for deploying on kubernetes cluster. "k8s_openttd.yml"
-just run 
-
-    kubectl apply openttd.yaml
-
-and it will apply configmap with openttd.cfg, deployment and service listening on port 31979 UDP/TCP.
+    docker run -d -p 3979:3979/tcp -p 3979:3979/udp -v /home/<your_username>/.openttd:/home/openttd/.openttd -e PUID=<your_userid> -e PGID=<your_groupid> -e "loadgame=true" -e "savename=game.sav" hoggaming/openttd:latest
 
 ## Other tags ##
-   * See [bateau/openttd](https://hub.docker.com/r/bateau/openttd) on docker hub for other tags
+   * See [hoggaming/openttd](https://hub.docker.com/r/hoggaming/openttd) on docker hub for other tags
