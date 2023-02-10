@@ -4,6 +4,7 @@ savepath="/home/openttd/.openttd/save"
 savegame="${savepath}/${savename}"
 LOADGAME_CHECK="${loadgame}x"
 loadgame=${loadgame:-'false'}
+configfile="/home/openttd/.openttd/config.cfg"
 
 PUID=${PUID:-911}
 PGID=${PGID:-911}
@@ -35,6 +36,15 @@ User gid:    $(id -g ${USER})
 User Home:   $(grep ${USER} /etc/passwd | cut -d':' -f6)
 -----------------------------------
 "
+
+#Check if a config file exists, otherwise exit!
+
+if [ -f "$configfile" ]; then
+    echo "$configfile exists."
+else 
+    echo "$configfile does not exist, please create a config.cfg otherwise the server will not start"
+    exit 1
+fi
 
 # Loads the desired game, or prepare to load it next time server starts up!
 if [ ${LOADGAME_CHECK} != "x" ]; then
