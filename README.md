@@ -57,3 +57,7 @@ For example to run server and load my savename game.sav:
 
 ## Other tags ##
    * See [hoggaming/openttd](https://hub.docker.com/r/hoggaming/openttd) on docker hub for other tags
+
+## Credit ##
+
+This is a fork from https://github.com/bateau84/openttd, all credit to Bateau84 for his initial work, this is an adaptaion based on migrating from .deb install files to the Linux generic OpenTTD.
