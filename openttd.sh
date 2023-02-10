@@ -4,7 +4,7 @@ savepath="/home/openttd/.openttd/save"
 savegame="${savepath}/${savename}"
 LOADGAME_CHECK="${loadgame}x"
 loadgame=${loadgame:-'false'}
-configfile="/home/openttd/.openttd/config.cfg"
+configfile="/home/openttd/.openttd/openttd.cfg"
 
 PUID=${PUID:-911}
 PGID=${PGID:-911}
