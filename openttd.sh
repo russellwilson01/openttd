@@ -43,7 +43,7 @@ if [ -f "$configfile" ]; then
     echo "$configfile exists."
 else 
     echo "$configfile does not exist, please create a config.cfg otherwise the server will not start"
-    exit 1
+    #exit 1
 fi
 
 # Loads the desired game, or prepare to load it next time server starts up!
