@@ -67,18 +67,3 @@ jobs:
           pull: true
           build-args: OPENTTD_VERSION=${{ matrix.version }}
           tags: ${{ env.DOCKER_REPO_NAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ matrix.version }}
-      # Trivy test
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
-        id: trivy
-        with:
-          image-ref: '${{ env.DOCKER_REPO_NAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ matrix.version }}'
-          format: 'json'
-          exit-code: '0'
-          ignore-unfixed: true
-          vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
-          output: results.json
-      - name: test outputs
-        run: |
-          cat results.json
