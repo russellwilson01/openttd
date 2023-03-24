@@ -68,7 +68,7 @@ if [ ${LOADGAME_CHECK} != "x" ]; then
                 ;;
                 'last-autosave')
 
-			savegame=${savepath}/autosave/`ls -rt ${savepath}/autosave/ | tail -n1`
+			savegame=${savepath}/autosave/`ls -rt ${savepath}/autosave/ | sort -V | grep autosave | tail -n1`
 
 			if [ -r ${savegame} ]; then
 	                        echo "Loading ${savegame}"
